@@ -1,10 +1,8 @@
 import React,{useState} from "react"
 function TodoList(){
-    const [task, setTask] = useState(["go to school"]);
+    const [task, setTask] = useState([]);
     const [newtask, setNewTask] = useState("")
-    /*function inputEnter(event){
-        if 
-    }*/
+    
     function handleInputChange(event){
         setNewTask(event.target.value)
         if(event.key === "Enter"){
@@ -40,29 +38,29 @@ function TodoList(){
 
     }
     return(
-        <div>
-            <h1>To-do List Website by David Goggins</h1>
-        <div className="input-section">
+        <div class=" flex flex-col items-center justify-center mt-23 font-poppins text-2xl ">
+            <h1 class="text-5xl">To-do List Website by David Goggins</h1>
+        <div class="mt-20">
             <input type="text" placeholder="Enter a task..." value={newtask} onChange={handleInputChange} onKeyDown={handleInputChange}/>
-            <button className="btn-add" onClick={addTask}>Add Task</button>
+            <button onClick={addTask}>Add Task</button>
         </div>
-        <div>
+        <div class="mt-5">
             <ol>
                 {task.map((task, index) =>
                 <li key = {index}>
-                    <span className="task">{task}</span>
+                    <span >{task}</span>
                     <button
-                        className="delete-button"
+                        
                         onClick={() => deleteTask(index)}>
                         Delete
                     </button>
                     <button
-                        className="importantTask-button"
+                        
                         onClick={() => importantTask(index)}>
                         &#128102;&#127997;
                     </button>
                     <button
-                        className="lessImportantTask-button"
+                        
                         onClick={() => lessImportantTask(index)}>
                         &#128102;&#127999;
                     </button>
