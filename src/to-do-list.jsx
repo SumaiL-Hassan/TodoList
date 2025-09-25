@@ -48,8 +48,8 @@ function TodoList(){
             <ol>
                 {task.map((task, index) =>
                 <li key = {index}>
-                    <span >{task}</span>
-                    <button
+                    <span class="mr-5">{task}</span>
+                    <button class="bg-white-500"
                         
                         onClick={() => deleteTask(index)}>
                         Delete
