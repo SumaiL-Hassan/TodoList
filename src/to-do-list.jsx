@@ -41,25 +41,25 @@ function TodoList(){
         <div class=" flex flex-col items-center justify-center mt-23 font-poppins text-2xl ">
             <h1 class="text-5xl">To-do List Website by David Goggins</h1>
         <div class="mt-20">
-            <input type="text" placeholder="Enter a task..." value={newtask} onChange={handleInputChange} onKeyDown={handleInputChange}/>
-            <button onClick={addTask}>Add Task</button>
+            <input class="border p-2 mr-2" type="text" placeholder="Enter a task..." value={newtask} onChange={handleInputChange} onKeyDown={handleInputChange}/>
+            <button class="bg-green-500 border-1 rounded-lg p-2 " onClick={addTask}>Add Task</button>
         </div>
-        <div class="mt-5">
+        <div class=" mt-5  ">
             <ol>
                 {task.map((task, index) =>
-                <li key = {index}>
-                    <span class="mr-5">{task}</span>
-                    <button class="bg-white-500"
+                <li key = {index} class="flex justify-between items-center gap-4">
+                    <span >{task}</span>
+                    <button class="bg-cyan-400 rounded-lg border-1 p-2 ml-auto mt-2"
                         
                         onClick={() => deleteTask(index)}>
                         Delete
                     </button>
-                    <button
+                    <button class="bg-emerald-400 rounded-lg border-1 p-2 mt-2 "
                         
                         onClick={() => importantTask(index)}>
                         &#128102;&#127997;
                     </button>
-                    <button
+                    <button class="bg-zinc-500 rounded-lg border-1 p-2 mt-2"
                         
                         onClick={() => lessImportantTask(index)}>
                         &#128102;&#127999;
