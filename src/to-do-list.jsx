@@ -16,6 +16,10 @@ function TodoList(){
             setNewTask("");
         }
     }
+    function doneTask(index){
+        const updatedTask = task.filter((_, i) => i !== index);
+        setTask(updatedTask);
+    }
     function deleteTask(index){
         const updatedTask = task.filter((_, i) => i !== index);
         setTask(updatedTask);
@@ -47,8 +51,12 @@ function TodoList(){
         <div class=" mt-5  ">
             <ol>
                 {task.map((task, index) =>
-                <li key = {index} class="flex justify-between items-center gap-4">
+                <li key = {index}  class="flex items-center justify-between gap-4">
                     <span >{task}</span>
+                    <button class="bg-green-500 rounded-lg border-1 p-2 mt-2" 
+                        onClick={()=> doneTask(index)}>
+                        Done
+                    </button>
                     <button class="bg-cyan-400 rounded-lg border-1 p-2 ml-auto mt-2"
                         
                         onClick={() => deleteTask(index)}>
