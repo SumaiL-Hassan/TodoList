@@ -1,13 +1,18 @@
+import immortal from './immortal.jpg'
 import React,{useState} from "react"
 function TodoList(){
     const [task, setTask] = useState([]);
     const [newtask, setNewTask] = useState("")
+    const [isVisible, setIsVisible] = useState(false);
     
     function handleInputChange(event){
         setNewTask(event.target.value)
         if(event.key === "Enter"){
             addTask();
         }
+    }
+    function eventPicture(){
+        setIsVisible(true);
     }
     function addTask(){
 
@@ -51,12 +56,13 @@ function TodoList(){
         <div class=" mt-5  ">
             <ol>
                 {task.map((task, index) =>
-                <li key = {index}  class="flex items-center justify-between gap-4">
-                    <span >{task}</span>
+                <li key = {index}  class="flex items-center justify-between gap-x-2">
+                    <span class="flex-1">{task}</span>
                     <button class="bg-green-500 rounded-lg border-1 p-2 mt-2" 
-                        onClick={()=> doneTask(index)}>
+                        onClick={()=> {doneTask(index); setIsVisible(true); setTimeout(() => {setIsVisible(false);}, 3000);}}>
                         Done
                     </button>
+                    
                     <button class="bg-cyan-400 rounded-lg border-1 p-2 ml-auto mt-2"
                         
                         onClick={() => deleteTask(index)}>
@@ -72,6 +78,7 @@ function TodoList(){
                         onClick={() => lessImportantTask(index)}>
                         &#128102;&#127999;
                     </button>
+                    {isVisible ? <img src={immortal}/> : null}
 
                 </li>)}
             </ol>
